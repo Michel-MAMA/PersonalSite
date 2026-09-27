@@ -38,13 +38,7 @@ attachmentInput?.addEventListener('change', () => {
 contactForm?.addEventListener('submit', (event) => {
   event.preventDefault();
   const note = document.querySelector('#form-note');
-  // Set this to the professional email address before publishing the site.
-  const contactEmail = 'VOTRE_ADRESSE_EMAIL';
-  if (contactEmail === 'VOTRE_ADRESSE_EMAIL') {
-    note.textContent = 'Le formulaire est prêt, mais il faut encore configurer votre adresse e-mail dans script.js avant de pouvoir envoyer le message.';
-    note.classList.add('error');
-    return;
-  }
+  const contactEmail = 'contact@ai-learning-os.com';
 
   const formData = new FormData(contactForm);
   const subject = `Demande de contact — ${formData.get('requestType')}`;
