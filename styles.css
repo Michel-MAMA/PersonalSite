@@ -24,3 +24,6 @@
   .blog-listing,.cert-page-content{padding-left:6%;padding-right:6%}.article-page{padding-left:6%;padding-right:6%}
   .article-cover{height:205px}.article-cover>b{font-size:62px}
 }
+
+/* Text emphasis stays upright across the personal brand system. */
+em{font-style:normal}

@@ -1,10 +1,11 @@
 # Publier un article
 
-Le site est statique : les articles sont des pages HTML. Pour en publier un :
+Le site est statique : chaque article est une page HTML.
 
 1. Copiez `article-modele.html` vers un nouveau fichier, par exemple `article-gouvernance-ia.html`.
-2. Remplacez le titre, le résumé, la catégorie, la date, le temps de lecture et le texte entre crochets. Mettez aussi à jour le titre de page et sa description.
-3. Dans `blog.html`, dupliquez le bloc `<article class="blog-feature">…</article>`, puis remplacez le lien, le titre, la date, la catégorie et le résumé. Placez le nouvel article en premier.
-4. Ouvrez `blog.html` pour vérifier que la carte apparaît et que son lien ouvre le nouvel article.
+2. Remplacez titre, résumé, catégorie, date réelle, temps de lecture et texte. Mettez à jour la description, les métadonnées Open Graph/Twitter, le canonical et le JSON-LD `BlogPosting`.
+3. Dans `blog.html`, dupliquez le bloc `<article class="blog-feature">…</article>`, remplacez liens, titre, date, catégorie, résumé et `data-search`. Choisissez `data-category` parmi `data`, `ai`, `agentic-ai`, `ai-security`, `cloud`, `architecture`, `career` ou `certifications`.
+4. Ajoutez l’URL propre de l’article à `sitemap.xml`. N’ajoutez pas le modèle `article-modele.html` : il est en `noindex`.
+5. Si d’autres articles de la même catégorie sont publiés, liez-les depuis une zone « Explorer les sujets liés ».
 
-Le modèle réutilise les styles et la navigation du site. La date affichée doit correspondre à la date réelle de publication.
+Les filtres et la recherche de la page Insights lisent les attributs `data-category` et `data-search` des cartes. Les résultats vides indiquent qu’aucun article de cette catégorie n’est publié.
