@@ -28,4 +28,4 @@ Importez `Michel-MAMA/PersonalSite` dans Vercel, avec la racine du dépôt et le
 
 ## Avant publication
 
-Configurez l’adresse de contact dans `script.js`. Le formulaire ouvre le client e-mail de la personne ; les fichiers sélectionnés doivent être ajoutés manuellement au message. Les URLs publiques des projets Academy, des profils sociaux et les éventuels badges nominatifs doivent être ajoutés uniquement lorsque les adresses officielles sont fournies.
+Le formulaire envoie les demandes vers la fonction Supabase `contact-form`, qui les enregistre dans la table `contact_requests` et dépose les pièces jointes dans le bucket privé `contact-attachments`. Le schéma SQL est dans `supabase/migrations/202609280001_contact_requests.sql`. Pour activer les notifications par e-mail, configurez `RESEND_API_KEY` parmi les secrets de la fonction Supabase après avoir créé et vérifié un domaine d’envoi Resend. La clé Supabase publishable dans `script.js` est prévue pour le navigateur ; ne placez jamais une clé Supabase secrète dans le code client.

@@ -35,30 +35,40 @@ attachmentInput?.addEventListener('change', () => {
   fileName.textContent = attachmentInput.files?.[0]?.name ?? 'Aucun fichier sélectionné';
 });
 
-contactForm?.addEventListener('submit', (event) => {
+contactForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const note = document.querySelector('#form-note');
-  const contactEmail = 'contact@ai-learning-os.com';
+  const submitButton = contactForm.querySelector('[type="submit"]');
+  const originalButtonText = submitButton.innerHTML;
+  const supabaseUrl = 'https://gdgeghypyljichmzlbxv.supabase.co';
+  const supabasePublishableKey = 'sb_publishable_ofvmsaxijbV3KwREGO0giw_mL37iVjm';
 
-  const formData = new FormData(contactForm);
-  const subject = `Demande de contact — ${formData.get('requestType')}`;
-  const selectedFile = attachmentInput?.files?.[0];
-  const body = [
-    `Nom : ${formData.get('name')}`,
-    `E-mail : ${formData.get('email')}`,
-    `Profil : ${formData.get('audience')}`,
-    `Organisation : ${formData.get('organisation') || 'Non précisée'}`,
-    `Type de demande : ${formData.get('requestType')}`,
-    selectedFile ? `Document à joindre : ${selectedFile.name} (à ajouter manuellement dans ce message)` : 'Document à joindre : aucun',
-    '',
-    formData.get('message'),
-  ].join('\n');
-  window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  note.textContent = selectedFile
-    ? `Votre logiciel de messagerie va s’ouvrir. Ajoutez-y le fichier « ${selectedFile.name} » avant d’envoyer.`
-    : 'Votre logiciel de messagerie va s’ouvrir avec votre message prérempli.';
-  note.classList.remove('error');
-  note.classList.add('success');
+  submitButton.disabled = true;
+  submitButton.textContent = 'Envoi en cours…';
+  note.classList.remove('error', 'success');
+
+  try {
+    const response = await fetch(`${supabaseUrl}/functions/v1/contact-form`, {
+      method: 'POST',
+      headers: { apikey: supabasePublishableKey },
+      body: new FormData(contactForm),
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || 'La demande n’a pas pu être envoyée. Réessayez dans quelques instants.');
+
+    note.textContent = result.emailNotified
+      ? 'Merci, votre demande a bien été envoyée. Je vous répondrai dans les meilleurs délais.'
+      : 'Merci, votre demande a bien été enregistrée. La notification e-mail sera activée prochainement.';
+    note.classList.add('success');
+    contactForm.reset();
+    document.querySelector('#file-name').textContent = 'Aucun fichier sélectionné';
+  } catch (error) {
+    note.textContent = error.message || 'Une erreur est survenue. Vous pouvez écrire à contact@ai-learning-os.com.';
+    note.classList.add('error');
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerHTML = originalButtonText;
+  }
 });
 
 
