@@ -96,6 +96,7 @@
 .thesis-copy h2 em{font-style:normal;color:#a17f4a}
 .thesis-copy>p:not(.eyebrow){max-width:660px;font-size:12px;line-height:1.85;color:#626c73;margin:0 0 14px}
 .thesis-copy .thesis-lead{font-size:14px!important;color:#29333e!important}
+.thesis-copy p a{color:#765d38;border-bottom:1px solid #c8a66a70}.thesis-copy p a:hover{color:#a17f4a}
 .thesis-tags{display:flex;flex-wrap:wrap;gap:6px;margin:21px 0}
 .thesis-tags span{padding:7px 9px;border:1px solid #d1c9bd;color:#5d6468;font:8px var(--mono);letter-spacing:.025em}
 .thesis-link{display:inline-flex;align-items:center;gap:12px;padding-bottom:5px;border-bottom:1px solid #b69a6a;color:#745a32;font-size:10px;font-weight:600}
