@@ -27,3 +27,5 @@
 
 /* Text emphasis stays upright across the personal brand system. */
 em{font-style:normal}
+
+.brand-logo{display:block;width:48px;height:auto;max-height:38px;object-fit:contain;flex:none}.footer-brand .brand-logo{width:42px;max-height:32px}
