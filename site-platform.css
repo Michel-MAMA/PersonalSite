@@ -64,6 +64,30 @@
 @media(max-width:680px){.platform-hero{padding:59px 7% 67px}.platform-hero h1{font-size:clamp(40px,10vw,59px)}.platform-hero>p:not(.eyebrow){font-size:13px}.platform-section{padding:62px 7%}.platform-section-heading{display:block;margin-bottom:25px}.platform-section-heading .eyebrow{margin-bottom:15px}.platform-section-heading h2{font-size:34px}.platform-section-heading>p{margin-top:14px}.platform-grid,.platform-grid-2{grid-template-columns:1fr}.platform-card{padding:22px}.platform-steps{grid-template-columns:1fr}.platform-step{padding:16px 0}.platform-cta{padding:48px 7%;display:block}.platform-cta>p{margin:14px 0}.platform-cta .button{margin-top:10px}.platform-timeline{grid-template-columns:1fr;gap:18px}.platform-timeline:before{top:0;bottom:0;left:6px;width:1px;height:auto}.platform-timeline article{padding:0 0 0 27px}.platform-timeline article:before{top:3px}.blog-tools{grid-template-columns:1fr}.blog-filters{gap:5px}.blog-filter{padding:8px 9px}.platform-actions{align-items:flex-start;flex-direction:column}.platform-actions .button{min-width:220px}}
 @media(prefers-reduced-motion:reduce){.button,.text-link,.path-card,.expertise-card,.domain-card{transition:none}}
 
+/* Shared card finish: restrained corners and a soft light that travels around the frame. */
+@property --card-glow-angle{syntax:"<angle>";inherits:false;initial-value:0deg}
+.has-card-glow{position:relative;border-radius:5px}
+.card-glow{position:absolute;z-index:3;inset:0;padding:1.5px;border-radius:inherit;pointer-events:none;opacity:0;background:conic-gradient(from var(--card-glow-angle),transparent 0deg,transparent 286deg,#c8a66a12 306deg,#dfc18a9c 328deg,#f1dfbdc9 340deg,#c8a66a24 352deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;filter:drop-shadow(0 0 5px #c8a66a38);transition:opacity .2s ease}
+.has-card-glow:hover>.card-glow,.has-card-glow:focus-within>.card-glow{opacity:1;animation:card-glow-lap 2.4s linear infinite}
+@keyframes card-glow-lap{to{--card-glow-angle:360deg}}
+@media(prefers-reduced-motion:reduce){.card-glow{transition:none}.has-card-glow:hover>.card-glow,.has-card-glow:focus-within>.card-glow{animation:none;opacity:.75}}
+
+.client-showcase{overflow:hidden;padding:clamp(52px,7vw,86px) 0;background:#172230;color:#f8f5ee}
+.client-showcase-heading{width:min(1040px,85%);margin:0 auto 30px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:14px 38px}
+.client-showcase-heading .eyebrow{grid-column:1/-1;margin:0;color:#c7b99f}
+.client-showcase-heading h2{font:600 clamp(29px,3.8vw,46px)/1.12 var(--display);letter-spacing:-.055em;margin:0}
+.client-showcase-heading h2 em{font-style:normal;color:#d1b27d}
+.client-showcase-heading>p:last-child{max-width:270px;margin:0;color:#c1c6cb;font-size:11px;line-height:1.75}
+.client-marquee{position:relative;overflow:hidden;padding:12px 0;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.client-track{display:flex;width:max-content;animation:client-logo-drift 62s linear infinite;will-change:transform}
+.client-track-group{display:flex;flex:0 0 auto;align-items:center;gap:14px;padding-right:14px}
+.client-logo-card{flex:0 0 174px;width:174px;height:100px;padding:15px;background:#fffdfa;border:1px solid #ffffff45;box-shadow:0 10px 24px #070e181c;display:grid;place-items:center;overflow:hidden}
+.client-logo-card img{display:block;width:100%;height:100%;max-height:68px;object-fit:contain}
+.client-marquee:hover .client-track,.client-marquee:focus-within .client-track{animation-play-state:paused}
+@keyframes client-logo-drift{to{transform:translateX(-50%)}}
+@media(max-width:680px){.client-showcase-heading{display:block;width:86%;margin-bottom:19px}.client-showcase-heading .eyebrow{margin-bottom:14px}.client-showcase-heading h2{font-size:32px}.client-showcase-heading>p:last-child{margin-top:13px}.client-logo-card{flex-basis:148px;width:148px;height:88px;padding:12px}.client-track-group{gap:10px;padding-right:10px}}
+@media(prefers-reduced-motion:reduce){.client-track{animation:none;will-change:auto}.client-track-duplicate{display:none}.client-marquee{overflow:visible;mask-image:none}.client-track{width:auto;flex-wrap:wrap;justify-content:center}.client-track-group{justify-content:center;flex-wrap:wrap;padding:0 7%}}
+
 .cert-family-summary{margin:0 0 24px}.cert-family-summary span{padding:8px 10px}
 .article-share{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:24px}.article-share button{font:9px var(--mono);color:#715a35;background:transparent;border:1px solid #cfc5b4;padding:10px 12px;cursor:pointer}.article-share p{font-size:10px;color:#667169;margin:0}
 
