@@ -1,0 +1,3 @@
+/* Palette monochrome globale — dernière feuille chargée sur toutes les pages. */
+:root{color-scheme:light;--paper:#fff;--ink:#111;--muted:#555;--green:#111;--line:#d8d8d8;--deep:#111;--white:#fff;--platform-ink:#111;--platform-gold:#111;--platform-line:#d8d8d8;--mono-accent:#111}
+html{filter:grayscale(1)}
