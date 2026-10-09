@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.blog-engagement]
 verify_jwt = false
+
+[functions.coaching-booking]
+verify_jwt = false
