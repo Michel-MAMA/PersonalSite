@@ -1,31 +1,37 @@
 # PersonalSite — Dr. Michel MAMA TOULOU
 
-Site personnel statique consacré aux expertises Data, AI, Cloud, AI Security, transformation et transmission.
+Site personnel professionnel consacré aux expertises Data, IA, Cloud et AI Security, à l’accompagnement et à la transmission.
 
-## Stack et développement
+## Structure
 
-Le site utilise des fichiers HTML indépendants, `styles.css`, des feuilles spécialisées et `script.js`. Il n’y a ni framework, ni dépendances NPM, ni commande de build : Vercel sert les fichiers de la racine avec les URLs propres configurées dans `vercel.json`.
+Le site est composé de pages HTML statiques, sans framework ni étape de build. Vercel sert la racine du dépôt et `vercel.json` active les URL propres. Les styles partagés sont dans `styles.css`, `premium.css`, `site-platform.css` et `monochrome.css`; les feuilles spécialisées couvrent les certifications, le contact et les expertises. La navigation et les interactions sont dans `script.js`.
 
-## Pages
+Les pages incluent l’accueil, les expertises, À propos, les offres, le coaching, les certifications, les Insights, le contact, les projets et les ressources. `article-modele.html` est un gabarit, pas une page à indexer.
 
-- Accueil, Expertises et À propos
-- AI Security, Agentic AI, Technology stack, Frameworks et Industries
-- Réalisations (trames éditoriales sans références ou résultats inventés)
-- Accompagnements, Coaching, Reconversion, Entreprises, Formations, AI Transformation et AI Productivity
-- Academy et Ressources (projets/ressources indiqués en développement ou à venir)
-- Certifications, Insights/Blog et Conférences
-- Contact
+## Expérience du site
 
-Les pages partagent une identité visuelle dans `styles.css`, `premium.css` et `site-platform.css`. La navigation et les interactions se trouvent dans `script.js`. Les pages restent éditables directement en HTML pour garder l’accès au contenu sans JavaScript.
+Le thème s’appuie sur une palette noir, blanc et gris. Les logos et badges sont désaturés ; les photographies restent en couleur. Le footer inclut les réseaux sociaux et le widget WhatsApp.
 
-## Blog
+La page Coaching présente trois formules mensuelles : Le Cercle (50 €, collectif), Le Cap (75 €, 4 séances individuelles de 30 minutes) et L’Intensif (100 €, 4 séances individuelles de 1 h 30). Le calendrier permet de demander des séances les week-ends ; les réservations sont en attente de confirmation.
 
-Consultez `BLOG.md` pour publier une page article et l’ajouter à la liste. Ajoutez également la nouvelle URL dans `sitemap.xml` et renseignez catégorie, date réelle, temps de lecture, métadonnées et liens associés. La page actuelle inclut recherche et filtres ; un filtre sans article publié affiche un message explicite.
+Les articles prévoient les likes, les commentaires soumis à modération et le partage. Consultez `BLOG.md` pour publier un article.
 
-## Déploiement Vercel
+## Supabase et e-mails
 
-Importez `Michel-MAMA/PersonalSite` dans Vercel, avec la racine du dépôt et le framework **Other**. Aucun build n’est nécessaire. `vercel.json` active les URLs sans suffixe `.html`; `robots.txt` référence `sitemap.xml`.
+Les Edge Functions `contact-form`, `blog-engagement` et `coaching-booking` enregistrent les demandes et interactions côté serveur. Les clés secrètes restent dans les secrets Supabase ; la clé publishable seule est utilisée côté navigateur.
 
-## Avant publication
+Après liaison de la CLI au projet, appliquer les migrations et déployer les fonctions :
 
-Le formulaire envoie les demandes vers la fonction Supabase `contact-form`, qui les enregistre dans la table `contact_requests` et dépose les pièces jointes dans le bucket privé `contact-attachments`. Le schéma SQL est dans `supabase/migrations/202609280001_contact_requests.sql`. Pour activer les notifications par e-mail, configurez `RESEND_API_KEY` parmi les secrets de la fonction Supabase après avoir créé et vérifié un domaine d’envoi Resend. La clé Supabase publishable dans `script.js` est prévue pour le navigateur ; ne placez jamais une clé Supabase secrète dans le code client.
+```powershell
+supabase link --project-ref gdgeghypyljichmzlbxv
+supabase db push
+supabase functions deploy contact-form --project-ref gdgeghypyljichmzlbxv
+supabase functions deploy blog-engagement --project-ref gdgeghypyljichmzlbxv
+supabase functions deploy coaching-booking --project-ref gdgeghypyljichmzlbxv
+```
+
+Configurer `RESEND_API_KEY` et `SUPABASE_SECRET_KEYS` dans les secrets des fonctions Supabase. Les demandes de coaching sont enregistrées comme demandes en attente ; la confirmation est manuelle. Les commentaires de blog sont publiés après approbation dans Supabase.
+
+## Référencement
+
+`robots.txt` référence `sitemap.xml`. Les pages canoniques et métadonnées sont dans leur `<head>`. Le gabarit d’article est exclu du sitemap.
