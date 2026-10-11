@@ -39,6 +39,7 @@ export function renderHeader(currentRoute) {
       ['Data & AI Governance', 'expertises.html#gouvernance', 'expertises'],
       ['AI Security', 'ai-security.html', 'ai-security'],
       ['Cloud Computing', 'expertises.html#cloud-computing', 'expertises'],
+      ['Observabilité & monitoring', 'expertises.html#observabilite', 'expertises'],
     ]),
     primary('À propos', 'apropos.html', 'about', currentRoute),
     dropdown('Ressources', 'resources', currentRoute, [

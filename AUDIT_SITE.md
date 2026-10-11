@@ -52,3 +52,9 @@ Le site possède une base éditoriale crédible : positionnement Data/IA/Cloud, 
 - Logos clients présentés en grille fixe ; correction du masquage transparent de l’ancien bandeau et du contraste du footer.
 - Validation : douze tests automatisés, build et contrôle des 24 pages, essais dans Edge à 390/768/1440 px sur huit pages ; vérification complémentaire à 320/1024 px des pages d’accueil, contact et coaching. Aucun débordement horizontal observé. Les douze logos sont chargés et visibles.
 - Navigation mobile, sélection des formules et contexte de contact vérifiés. Soumission testée avec réponse Supabase simulée, sans envoi réel. Captures inspectées dans .qa/. Modifications locales ; aucun déploiement effectué.
+
+## Sixième domaine : observabilité & monitoring
+
+Ajout aux cartes de l’accueil, des formations, des entreprises et de la reconversion ; sixième section dans les expertises ; présentation dans le coaching, les méthodes, les technologies, les systèmes d’agents et le parcours À propos. Navigation partagée, métadonnées de compétences et contexte de contact mis à jour. L’observabilité est décrite comme un travail prévu dès la conception et poursuivi en exploitation : métriques, journaux, traces, alertes et diagnostic.
+
+Validation : build des 24 pages, liens et ancres valides, douze tests existants réussis. Essais Edge à 320/390/1440 px : six cartes présentes sur les quatre pages concernées, aucun débordement horizontal ; parcours accueil → observabilité → contact fonctionnel, sans envoi réel. Captures de la grille inspectées.

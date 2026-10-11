@@ -4,7 +4,7 @@ const journeys = {
   coaching: { audience: 'Professionnel·le', requestType: 'Coaching professionnel', label: 'Coaching carrière', placeholder: 'Recrutement, blocage ou évolution : votre situation et l’objectif que vous souhaitez travailler…' },
   orientation: { requestType: 'Aide pour choisir mon accompagnement', label: 'Choisir mon accompagnement', placeholder: 'Votre situation actuelle et ce que vous aimeriez faire avancer…' },
 };
-const domains = { 'data-engineering': 'Data Engineering', 'ai-engineering': 'AI Engineering', gouvernance: 'Data & AI Governance', 'ai-security': 'AI Security', 'cloud-computing': 'Cloud Computing' };
+const domains = { 'data-engineering': 'Data Engineering', 'ai-engineering': 'AI Engineering', gouvernance: 'Data & AI Governance', 'ai-security': 'AI Security', 'cloud-computing': 'Cloud Computing', observabilite: 'Observabilité & monitoring' };
 
 export function getContactContext(search) {
   const params = new URLSearchParams(search);
