@@ -1,0 +1,14 @@
+{
+  "name": "michel-mama-toulou-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test",
+    "check": "node build.mjs && node --test && node scripts/check-site.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
