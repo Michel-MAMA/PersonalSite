@@ -142,3 +142,7 @@ a.journey-card:hover, a.journey-card:focus-visible { border-color:#333; box-shad
   .client-track-group { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
   .client-logo-card { height:70px; }
 }
+
+/* Shared supplied symbol: readable in the header and on the dark footer. */
+.brand-logo { width:54px; height:48px; max-height:none; object-fit:contain; }
+.footer-brand .brand-logo { width:54px; height:48px; max-height:none; }

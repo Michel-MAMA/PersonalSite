@@ -53,7 +53,7 @@ export function renderHeader(currentRoute) {
     primary('Parlons de votre besoin', 'contact.html', 'contact', currentRoute).replace('<a ', '<a class="nav-cta" '),
   ].join('');
 
-  return `<header class="site-header"><a class="brand" href="index.html" aria-label="Accueil — Dr. Michel MAMA TOULOU"><img class="brand-logo" src="assets/michel-mama-toulou-logo.webp" alt=""><span class="brand-name">MICHEL<br>MAMA TOULOU</span></a><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Ouvrir le menu"><span></span><span></span></button><nav id="navigation" class="nav" aria-label="Navigation principale">${nav}</nav></header>`;
+  return `<header class="site-header"><a class="brand" href="index.html" aria-label="Accueil — Dr. Michel MAMA TOULOU"><img class="brand-logo" src="favicon.svg" width="54" height="48" alt=""><span class="brand-name">MICHEL<br>MAMA TOULOU</span></a><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Ouvrir le menu"><span></span><span></span></button><nav id="navigation" class="nav" aria-label="Navigation principale">${nav}</nav></header>`;
 }
 
 function socialLinks() {
@@ -61,7 +61,7 @@ function socialLinks() {
 }
 
 export function renderFooter() {
-  return `<footer class="site-footer"><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="assets/michel-mama-toulou-logo.webp" alt=""><span class="brand-name">MICHEL<br>MAMA TOULOU</span></a><span>DATA · AI · CLOUD · AI SECURITY</span><span>© <span class="year">2026</span> Dr. Michel MAMA TOULOU</span><a href="contact.html">Me contacter ↗</a>${socialLinks()}</footer>`;
+  return `<footer class="site-footer"><a class="brand footer-brand" href="index.html"><img class="brand-logo" src="favicon.svg" width="54" height="48" alt=""><span class="brand-name">MICHEL<br>MAMA TOULOU</span></a><span>DATA · AI · CLOUD · AI SECURITY</span><span>© <span class="year">2026</span> Dr. Michel MAMA TOULOU</span><a href="contact.html">Me contacter ↗</a>${socialLinks()}</footer>`;
 }
 
 export function renderWhatsAppWidget() {
