@@ -108,7 +108,7 @@ a.journey-card:hover, a.journey-card:focus-visible { border-color:#333; box-shad
 }
 @media (max-width:760px) {
   .journey-hero-photo { grid-template-columns:1fr; }
-  .journey-portrait { margin-top:30px; max-width:360px; }
+  .journey-portrait { width:100%; max-width:360px; margin:30px auto 0; }
   .journey-portrait img { max-height:300px; }
   .journey-grid, .journey-steps, .journey-split, .journey-domain { grid-template-columns:1fr; }
   .subject-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
@@ -139,7 +139,6 @@ a.journey-card:hover, a.journey-card:focus-visible { border-color:#333; box-shad
 .site-footer > span:nth-child(2), .site-footer > span:nth-child(3), .site-footer > a:not(.footer-brand) { font-size:12px!important; color:#bbb!important; line-height:1.6; }
 @media(max-width:1000px) { .client-track-group { grid-template-columns:repeat(4,minmax(0,1fr)); } }
 @media(max-width:760px) {
-  .journey-hero-photo .journey-portrait { display:none; }
   .client-track-group { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
   .client-logo-card { height:70px; }
 }
